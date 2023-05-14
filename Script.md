@@ -22,7 +22,9 @@ You will the following commands by one by through copy-pasting. Make sure there 
 ```
 			cp <type here the ID of the person’s genome assigned to you>.fastq.gz reads.fastq.gz
 			gunzip reads.fastq.gz
-  ```    
+  ```  
+  # Filter the short reads from the sequencer
+  
 - We’ll trim and filter the reads. 
 ```
 			fastx_trimmer -f 20 -l 240 -i reads.fastq -o reads_trimmed.fastq
@@ -31,7 +33,9 @@ You will the following commands by one by through copy-pasting. Make sure there 
 - Compare the read sequence before and after trimming and filtering
 ```
 			fastqc
-  ```    
+  ```
+  
+  # Alignment to the reference genome
 - Download the reference genome for the human mitochondria. For this, go to UCSC genome browser, choose Download, Human, Chromosomes and find the mitochondrial genome sequence. Copy-paste below where you see the word link:
 ```
 			python -m wget ‘link’
@@ -51,6 +55,7 @@ You will the following commands by one by through copy-pasting. Make sure there 
 ```
 			samtools depth alignment_sorted.bam > depth.csv
  ```     
+  # Identify the Variants
 - Identify the variants:
 ```
 			bcftools mpileup -f ref.fasta alignment_sorted.bam | bcftools call -mv -Ov -o calls.vcf
@@ -63,6 +68,7 @@ You will the following commands by one by through copy-pasting. Make sure there 
 			fasta_formatter -i consensus.fasta -w 70 -o consensus_short.fasta
 			cat consensus_short.fasta | sed -e 's/chrM/<name>/g’ > <name>.fasta
   ```     
+  # Draw a pylogenetic Tree
 - Create a genomes files including yours and the population one:
 ```
 			cat <your name>.fasta genomes/* > genomes.fasta
