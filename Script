@@ -1,0 +1,63 @@
+First steps for the practice:
+
+You will the following commands by one by through copy-pasting. Make sure there is no auto-correction happening with the words, dots, spaces, signs. Whenever you are asked a yes or no question or something like y/n comes up type y and press enter to continue.
+
+- Download the Files folder to your laptop from here: https://github.com/acg-team/Bioinfo4B
+- Initiate Anaconda by running the program
+- Open a terminal: For mac: type terminal in your search and click on it. For windows: open a terminal in Anaconda prompt. 
+- Create a directory called Genomics in your Documents and move everything inside the Files folder you downloaded in there. Use the following code
+			cd Documents
+			mkdir Genomics
+			cp ../Downloads/Files/* Genomics
+			cd Genomics 
+			ls
+- First, set the environment that will have all the packages we need.
+			conda env create -f environment.yaml
+			conda activate Env_Bioinfo4B
+
+- Then get your short reads from the Reads folder. Choose theone based on the number you’re assigned to.
+			cp <type here the ID of the person’s genome assigned to you>.fastq.gz reads.fastq.gz
+			gunzip reads.fastq.gz
+      
+- We’ll trim and filter the reads. 
+			fastx_trimmer -f 20 -l 240 -i reads.fastq -o reads_trimmed.fastq
+			fastq_quality_filter -q 30 -p 95 -i reads_trimmed.fastq -o reads_filtered.fastq
+      
+- Compare the read sequence before and after trimming and filtering
+			fastqc
+      
+- Download the reference genome for the human mitochondria. For this, go to UCSC genome browser, choose Download, Human, Chromosomes and find the mitochondrial genome sequence. Copy-paste below where you see the word link:
+			python -m wget ‘link’
+			gunzip chrM.fa.gz
+			cp chrM.fa ref.fasta
+      
+- Align the reads to the reference:
+			bowtie2-build ref.fasta ref
+			bowtie2 -x ref -q reads_filtered.fastq -S alignment.sam
+			samtools faidx ref.fasta
+			samtools view -bt ref.fasta.fai alignment.sam > alignment.bam
+			samtools sort alignment.bam -o alignment_sorted.bam
+			samtools index alignment_sorted.bam
+      
+- Visualize the sequence depth. First type the code below, then open a console in Jupyter and follow the steps in Plot Depth.ipynb page in the Scripts folder in the GitHub repo.
+			samtools depth alignment_sorted.bam > depth.csv
+      
+- Identify the variants:
+			bcftools mpileup -f ref.fasta alignment_sorted.bam | bcftools call -mv -Ov -o calls.vcf
+			bcftools mpileup -f ref.fasta alignment_sorted.bam | bcftools call -mv -Oz -o calls.vcf.gz
+      
+- Generate your first consensus sequence:
+			bcftools index calls.vcf.gz
+			bcftools consensus calls.vcf.gz -f ref.fasta -o consensus.fasta
+			fasta_formatter -i consensus.fasta -w 70 -o consensus_short.fasta
+      
+- Name it after yourself. Replace the <name> with your own.
+			cat consensus_short.fasta | sed -e 's/chrM/<name>/g’ > <name>.fasta
+      
+- Create a genomes files including yours and the population one:
+			cat <your name>.fasta genomes/* > genomes.fasta
+      
+- Create a phylogenetic tree
+			clustalo -i genomes.fasta --outfmt=phylip -o aligned.phy
+			dnaml
+			figtree
