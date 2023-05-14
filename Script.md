@@ -6,11 +6,13 @@ You will the following commands by one by through copy-pasting. Make sure there 
 - Initiate Anaconda by running the program
 - Open a terminal: For mac: type terminal in your search and click on it. For windows: open a terminal in Anaconda prompt. 
 - Create a directory called Genomics in your Documents and move everything inside the Files folder you downloaded in there. Use the following code
+```
 			cd Documents
 			mkdir Genomics
 			cp ../Downloads/Files/* Genomics
 			cd Genomics 
 			ls
+```
 - First, set the environment that will have all the packages we need.
 			conda env create -f environment.yaml
 			conda activate Env_Bioinfo4B
