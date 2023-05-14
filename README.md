@@ -1,5 +1,7 @@
 # Bioinformatics Course for Beginners
 
+Please follow the steps in the Preparation Page before the course starts.
+
 A two-day course for students and other life scientists who are just starting with bioinformatics.
 
 Prerequisites for this course: Although not required, familiarity with python or a coding language is recommended. Participants should bring laptops that have a working terminal.
