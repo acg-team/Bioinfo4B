@@ -34,8 +34,8 @@ Kevin:   SRR1583061
 Mark:    SRR1583063
 
 ```
-			cp <type here the ID of the person’s genome assigned to you>.fastq.gz reads.fastq.gz
-			gunzip reads.fastq.gz
+			fastq-dump -I --split-files <type here the ID of the person’s genome assigned to you>
+			cp <your SRR ID>.fastq reads.fastq
   ```  
   # Filter the short reads from the sequencer
   
