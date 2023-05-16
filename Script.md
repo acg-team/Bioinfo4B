@@ -22,11 +22,17 @@ You will the following commands by one by through copy-pasting. Make sure there 
 
 Table for who works on which reads:
 Daniela: SRR1583053
+
 Daniel:  SRR1583055
+
 Eric:    SRR1583057
+
 Jonathan:SRR1583059
+
 Kevin:   SRR1583061
+
 Mark:    SRR1583063
+
 ```
 			cp <type here the ID of the person’s genome assigned to you>.fastq.gz reads.fastq.gz
 			gunzip reads.fastq.gz
