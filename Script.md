@@ -38,6 +38,11 @@ Mark:    SRR1583063
 			cp <your SRR ID>.fastq reads.fastq
   ```  
   # Filter the short reads from the sequencer
+ 
+ - Check out the quality of your reads.
+```
+			fastqc
+  ```
   
 - We’ll trim and filter the reads. 
 ```
