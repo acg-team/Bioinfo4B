@@ -44,6 +44,8 @@ Mark:    SRR1583063
 			fastx_trimmer -f 20 -l 240 -i reads.fastq -o reads_trimmed.fastq
 			fastq_quality_filter -q 30 -p 95 -i reads_trimmed.fastq -o reads_filtered.fastq
   ```    
+- Check out the fastx-toolkit content with a pair: http://hannonlab.cshl.edu/fastx_toolkit/commandline.html List two commands that look potentially useful, explore those and share with others. 
+ 
 - Compare the read sequence before and after trimming and filtering
 ```
 			fastqc
