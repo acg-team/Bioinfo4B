@@ -101,3 +101,4 @@ Mark:    SRR1583063
 			dnaml
 			figtree
 ```
+To understand how dnaml works, go to its webiste https://evolution.genetics.washington.edu/phylip/doc/dnaml.html read through its assumptions. With a partner, discuss for each assumption how realistic they are and share what you discussed.
