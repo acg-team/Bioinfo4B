@@ -1,4 +1,4 @@
-# First steps for the practice:
+# Genomics practice:
 
 You will the following commands by one by through copy-pasting. Make sure there is no auto-correction happening with the words, dots, spaces, signs. Whenever you are asked a yes or no question or something like y/n comes up type y and press enter to continue.
 
@@ -13,12 +13,20 @@ You will the following commands by one by through copy-pasting. Make sure there 
 			cd Genomics 
 			ls
 ```
-- First, set the environment that will have all the packages we need.
+- First, set the environment that will have all the packages we need. Thisa will take about 15 minutes.
 ```
 			conda env create -f environment.yaml
 			conda activate Env_Bioinfo4B
 ```
-- Then get your short reads from the Reads folder. Choose theone based on the number you’re assigned to.
+- Meanwhile, get your short reads using the sra-toolkit. For this, you'll actually install the program yourself. Go to the website: https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit  Follow the instructions to download and install the toolkit. Open a tab in your terminal, make sure that the environment creation code is still running. 
+
+Table for who works on which reads:
+Daniela: SRR1583053
+Daniel:  SRR1583055
+Eric:    SRR1583057
+Jonathan:SRR1583059
+Kevin:   SRR1583061
+Mark:    SRR1583063
 ```
 			cp <type here the ID of the person’s genome assigned to you>.fastq.gz reads.fastq.gz
 			gunzip reads.fastq.gz
