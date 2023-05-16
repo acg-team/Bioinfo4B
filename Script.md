@@ -97,7 +97,7 @@ Mark:    SRR1583063
  ```     
 - Create a phylogenetic tree
 ```
-			clustalo -i genomes.fasta --outfmt=phylip -o aligned.phy
+			clustalo -i genomes.fasta --outfmt=phylip -o genomes.phy
 			dnaml
 			figtree
 ```
