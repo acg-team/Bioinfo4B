@@ -88,7 +88,7 @@ Mark:    SRR1583063
 			bcftools index calls.vcf.gz
 			bcftools consensus calls.vcf.gz -f ref.fasta -o consensus.fasta
 			fasta_formatter -i consensus.fasta -w 70 -o consensus_short.fasta
-			cat consensus_short.fasta | sed -e 's/chrM/<name>/g’ > <name>.fasta
+			cat consensus_short.fasta | sed -e 's/chrM/<name>/g' > <name>.fasta
   ```     
   # Draw a pylogenetic Tree
 - Create a genomes files including yours and the population one:
