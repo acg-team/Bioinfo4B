@@ -72,7 +72,12 @@ Mark:    SRR1583063
 			samtools view -bt ref.fasta.fai alignment.sam > alignment.bam
 			samtools sort alignment.bam -o alignment_sorted.bam
 			samtools index alignment_sorted.bam
- ```     
+ ```    
+ 
+- Visualize the aligned sequences
+ ```   
+			samtools tview -d C alignment_sorted.bam ref.fasta
+ ```   
 - Visualize the sequence depth. First type the code below, then open a console in Jupyter and follow the steps in Plot Depth.ipynb page in the Scripts folder in the GitHub repo.
 ```
 			samtools depth alignment_sorted.bam > depth.csv
