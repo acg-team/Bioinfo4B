@@ -22,4 +22,4 @@ dependencies:
   - bowtie2
   - bcftools
   - clustalo
-  - graph-tool
+  - cnvkit
