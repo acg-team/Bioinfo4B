@@ -35,7 +35,7 @@ Mark:    SRR1583063
 
 ```
 			fastq-dump -I --split-files <type here the ID of the person’s genome assigned to you>
-			cp <your SRR ID>_2.fastq reads.fastq
+			cp <your SRR ID>_1.fastq reads.fastq
   ```  
   # Filter the short reads from the sequencer
  
