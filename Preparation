@@ -1,7 +1,4 @@
-Please do these a few days before the course starts. Write to us in case of any questions. 
-- Bring a laptop
-- Download and install Anaconda. Follow the instructions below for that:
-	1. Install Anaconda to your laptop here: https://www.anaconda.com/products/distribution and run it by double clicking
-	2. Open the terminal to make sure you’re ready
-		a) For mac: type terminal in your search and click on it. Next step will take a while: In terminal, type xcode-select --install 
-		b) For windows: open a terminal in Anaconda prompt. If it opens, you’re all set.
+Please do these steps before the course starts. Write to us in case of any questions. 
+
+We will be working in   [the High Performance Computing (HPC) Platform of ZHAW](https://wiki.hpc.zhaw.ch/hpcuserwiki/index.php/Welcome_to_the_HPC_User_Wiki). We will also call this platform the cluster or the server.
+
