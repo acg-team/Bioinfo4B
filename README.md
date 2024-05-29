@@ -8,7 +8,7 @@ Prerequisites for this course: Although not required, familiarity with python or
 
 ## Objectives
 
-We’ll start by exploring the most used bioinformatics resources for variety of different data sets, continue with a genomics practice on mutations. We’ll cover the best practices and common challenges in this practice as a foundation to the understanding of bioinformatics pipelines. Rest of the course, you’ll be working in smaller project groups. You’ll be able to choose projects on phylogenetics, immunobiology, cancer genomics and machine learning. As you can see, majority of the course will be hands-on allowing you to practice your acquired knowledge.
+We’ll start by exploring the most used bioinformatics resources for variety of different data sets, continue with a genomics practice on mutations. We’ll cover the best practices and common challenges in this practice as a foundation to the understanding of bioinformatics pipelines. Rest of the course, you’ll be working in smaller project groups. You’ll be able to choose projects on phylogenetics, immunobiology, and cancer genomics. As you can see, majority of the course will be hands-on allowing you to practice your acquired knowledge.
 
 At the end students will 
 
@@ -22,7 +22,7 @@ At the end students will
 
 - work on a project to practice acquired knowledge on a topic of interest
 
-- work in groups on datasets provided by real life science researchers on phylogenetics, immunobiology, molecular biology, cancer genomics and machine learning
+- work in groups on datasets provided by real life science researchers on phylogenetics, immunobiology, molecular biology, and cancer genomics
 
 - present their findings 
 
@@ -40,7 +40,7 @@ At the end students will
 
 12:30 - 13:30 lunch break
 
-13:30 - 15:00 genomics practice on a human population dataset
+13:30 - 15:00 genomics practice
 
 15:00 - 15:30 coffee break
 
@@ -70,7 +70,7 @@ The module will consist of lectures and practical exercises. In addition to lect
 
 Exercises during the course: 50%
 Data challenge: 50%
-The course is taught in English. We’ll be working in python. You may also use bash, R etc. depending on the projects. No prior knowledge in coding is required although familiarity with a coding language will be helpful. Please bring laptops that have a terminal. If you have questions, feel free to email Tugce Bilgin.
+The course is taught in English. We’ll be working in bash. You may also use python, R etc. depending on the projects. No prior knowledge in coding is required although familiarity with a coding language will be helpful. Please bring laptops that have a terminal. If you have questions, feel free to email Tugce Bilgin.
 
 ## More details about the implementation
 
