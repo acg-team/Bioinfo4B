@@ -1,4 +1,18 @@
 # Genomics:
+The high throughput of next-generation sequencing (NGS) methods generates such large amounts of data that handling/filtering this data has become a major challenge during studies. Researchers also need to use more powerful computers or even take it one step further and use computing clusters. These new demands have given rise to bioinformatics. A bioinformatician is a Jack of all trades and bridges the gap between biology and computer science. Many Universities now offer specialized bioinformatics undergraduate and graduate programs but there are just as many self-taught bioinformaticians out there that originally come from a biology-only background.
+
+It can’t be put any other way but, as in many other computer based sciences, performance comes before comfort. Most applications and programs can only be used via text commands in a terminal and they lack graphical user interfaces (GUIs). For users who are used to neatly designed user interfaces in Windows or Mac OS, using the terminal is associated with a steep learning curve. Many struggle with this at the beginning but nobody who wishes to work with next-generation sequencing data will get around learning at least some Linux/Unix terminal basics. Once you have worked with it for a while, however, you will get used to it and realize that there are good reasons for abandoning the comfort of GUIs:
+
+	Everything has to be programmed, especially GUIs. New analysis methods for next-generation sequencing data are being developed and published on a weekly basis. This process would be slowed down significantly if the developer had to program a graphical user interface for every analysis software they write. As a consequence, your analyses will always lag behind current developments if you depend on commercial/GUI software.
+
+	Graphical user interfaces occupy memory and CPU resources just to make things look good. Both memory and CPU time are major bottlenecks for analyses.
+
+	Many of the files you are working on are in binary format or are too big to be displayed so they are not human readable anyways.
+
+	Analyses are much easier to automate in a terminal. It is possible to “pipe” the output from one program directly into another program line by line as the analysis progresses. The second analysis step in the pipeline can therefore start even before the first one is finished. Once this is set up, you can start your entire pipeline and analyze your dataset from start to finish with one single keystroke.
+
+
+In this practical, we aim to walk you through the entire process from raw data to the list of variants.
 
 ## Preparation 
 Here are your ZHAW credentials. Connect to the ZHAW network, using these. These are also your HPC credentials. In your first time, you will be asked to change the password for the HPC.
