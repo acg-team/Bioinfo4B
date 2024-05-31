@@ -120,6 +120,11 @@ https://wiki.hpc.zhaw.ch/hpcuserwiki/index.php/Getting_started:Submit_a_job
 
 https://wiki.hpc.zhaw.ch/hpcuserwiki/index.php/Workload_management:Workload_management_(Slurm):Running_a_job_on_the_cluster
 
+This is the process of getting a fastq file:
+
+
+![Steps-in-next-generation-sequencing-A-Extracted-DNA-is-randomly-broken-into-1000-bp](https://github.com/genombilim/2023/assets/37342417/6b4693c3-77b5-46e3-b74d-467425c933f8)
+
 
 ### Filter and trim
  
