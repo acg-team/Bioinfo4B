@@ -3,21 +3,21 @@
 Here are your ZHAW credentials again. Connect to the ZHAW network, using these if you did not already. These are also your HPC credentials. In your first time, you will be asked to change the password for the HPC.
 
 
-Xavier	delfoxav	
+Xavier:	delfoxav	
 
-Hiu Man	usrn0016	TweJ$3Xsrc
+Hiu Man:	usrn0016	TweJ$3Xsrc
 
-Lova usrn0017	sW4$Hkcrmt
+Lova: usrn0017	sW4$Hkcrmt
 
-Rebeca	usrn0018	py3mLhqx!U
+Rebeca:	usrn0018	py3mLhqx!U
 
-Hana zemlihan	ks#@8MK94U
+Hana: zemlihan	ks#@8MK94U
 
-Besmira	 sabn	
+Besmira:	 sabn	
 
-Philipp	Heider	usrn0019	ks#@8MK94U
+Philipp:	usrn0019	ks#@8MK94U
 
-Emmanuelle	usrn0020	D8N7YsuhkO
+Emmanuelle:	usrn0020	D8N7YsuhkO
 
 ![image](https://github.com/acg-team/Bioinfo4B/assets/26571015/ac0e4a70-0ba8-40f1-aa5e-6efd0b25273b)
 
