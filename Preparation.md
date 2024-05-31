@@ -4,6 +4,9 @@ We will be working in   [the High Performance Computing (HPC) Platform of ZHAW](
 
 To be able to work in the server, you need a ZHAW Account that allows you an access in the server. If you are not affiliated with ZHAW, we created course accounts for you and will share the credentials with you in the beginning of the course. 
 
-Using your ZHAW credentials, once you are connected to the ZHAW network, you will gain access to the HPC. We made sure, everyone has an account in the HPC. Please **before the course starts** follow the instructions here to be able to connect to cluster. You won't be able to connect to the cluster before the course, but make sure to install anything needed before (like putty for Windows).
+**To-do before the course:**
+
+**1)** Using your ZHAW credentials, once you are connected to the ZHAW network, you will gain access to the HPC. We made sure, everyone has an account in the HPC. Please **before the course starts** follow the instructions here to be able to connect to cluster. You won't be able to connect to the cluster before the course, but make sure to install anything needed before (like putty for Windows).
 https://wiki.hpc.zhaw.ch/hpcuserwiki/index.php/Getting_started:Connect_to_the_cluster
 
+**2)** You will be working on Visual Studio that makes the remore experince of a cluster user friendly. Please make sure to install it up and running using the instructions here: https://code.visualstudio.com
