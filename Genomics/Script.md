@@ -2,39 +2,28 @@
 
 You will be following commands by one by through copy-pasting. Make sure there is no auto-correction happening with the words, dots, spaces, signs. Whenever you are asked a yes or no question or something like y/n comes up type y and press enter to continue.
 
-First, open the Visual Studio Code. In your first time, you will choose the ssh remote connection option and this will install some necassary 
-connect to the server and move to the course folder 
+First, open the Visual Studio Code. In your first time, you will choose the ssh remote connection option and this will set up your connection via installing some necassary stuff. Once connected, a new terminal using the menu. In the terminal, write the following code to move to the course folder in the terminal.
 
-- Download the Files folder to your laptop from here: https://github.com/acg-team/Bioinfo4B
-- Initiate Anaconda by running the program
-- Open a terminal: For mac: type terminal in your search and click on it. For windows: open a terminal in Anaconda prompt. 
-- Create a directory called Genomics in your Documents and move everything inside the Files folder you downloaded in there. Use the following code
 ```
-cd Documents
-mkdir Genomics
-cp ../Downloads/Files/* Genomics
-cd Genomics 
-ls
+cd /cfs/earth/scratch/icls/shared/bioinfo4beginners
 ```
-- First, set the environment that will have all the packages we need. Thisa will take about 15 minutes.
+
+- First, set the environment that will have all the packages we need. 
 ```
-			conda env create -f environment.yaml
-			conda activate Env_Bioinfo4B
+conda activate Env_Bioinfo4B
 ```
 - Meanwhile, get your short reads using the sra-toolkit. For this, you'll actually install the program yourself. Go to the website: https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit  Follow the instructions to download and install the toolkit. Open a tab in your terminal, make sure that the environment creation code is still running. 
 
 Table for who works on which reads:
-Daniela: SRR1583053
 
-Daniel:  SRR1583055
-
-Eric:    SRR1583057
-
-Jonathan:SRR1583059
-
-Kevin:   SRR1583061
-
-Mark:    SRR1583063
+Xavier: SRR1583064
+Hiu Man:SRR1583063
+Lavo: SRR1583062
+Rebeca: SRR1583061
+Hana: SRR1583060
+Besmira: SRR1583059
+Phillipp:SRR1583058
+Manu: SRR1583057
 
 ```
 			fastq-dump -I --split-files <type here the ID of the person’s genome assigned to you>
