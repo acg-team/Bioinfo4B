@@ -191,9 +191,11 @@ This is the website of the program we used: https://www.bioinformatics.babraham.
 - Download the reference genome for the human mitochondria. For this, go to UCSC genome browser, choose Download, Human, Chromosomes and find the mitochondrial genome sequence. Copy-paste below where you see the word link:
 ```
 python -m wget ‘link’
+```
+```
 gunzip chrM.fa.gz
 cp chrM.fa ref.fasta
-```    
+```   
 - Align the reads to the reference using the script align.sh.
 
 - You will notice that there is an indexing step. This figure is a visual depiction of the indexing:
