@@ -47,11 +47,14 @@ ls
 ```
 
 ## Practice 
+
+### Environment
 Ok, let's begin! 
 First, let's set the environment that will have all the packages we need. 
 ```
 conda activate Env_Bioinfo4B
 ```
+### download the reads
 Then, get your short reads using the sra-toolkit. You'll send this as a job to the server. This way, we avoid programming on the main node, which would make the server too busy. First open the download.sh and look inside:
 ```
 cat download.sh
@@ -65,7 +68,7 @@ Let's see:
 cd tugce/tugce_download.sh
 ls
 ```
-Next, you will edit the file. For this we will use the vim tool:
+Next, you will see how to edit the file. For this we will use the vim tool:
 ```
 vim tugce_download.sh
 ```
@@ -92,22 +95,29 @@ Phillipp:SRR1583058
 
 Manu: SRR1583057
 
-https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit  Follow the instructions to download and install the toolkit. Open a tab in your terminal, make sure that the environment creation code is still running. 
-
-
-
+Run the code: 
 ```
-			fastq-dump -I --split-files <type here the ID of the person’s genome assigned to you>
-			cp <your SRR ID>_1.fastq reads.fastq
-  ```  
-  # Filter the short reads from the sequencer
+sbatch tugce_download.sh
+```
+Check if it runs/is finished running etc.:
+```
+squeue
+```
+
+Below is the link to the sr-toolkit. Explore it, when you have time:
+
+https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit  
+
+Also, here are the HPC Cluster's wiki pages on submitting and running a job:
+
+https://wiki.hpc.zhaw.ch/hpcuserwiki/index.php/Getting_started:Submit_a_job
+
+https://wiki.hpc.zhaw.ch/hpcuserwiki/index.php/Workload_management:Workload_management_(Slurm):Running_a_job_on_the_cluster
+
+
+### Filter and trim
  
- - Check out the quality of your reads.
-```
-			fastqc
-  ```
-  
-- We’ll trim and filter the reads. 
+We’ll trim and filter the reads using the filter.sh script.
 ```
 			fastx_trimmer -f 20 -l 240 -i reads.fastq -o reads_trimmed.fastq
 			fastq_quality_filter -q 30 -p 95 -i reads_trimmed.fastq -o reads_filtered.fastq
