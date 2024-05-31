@@ -144,12 +144,14 @@ mv SRR...._1.fastq reads.fastq
 
 ![paired-end1](https://github.com/genombilim/2023/assets/37342417/3a672293-bb62-41b7-a361-0877512b8519)
 
-Let's check out the file.
+Let's check out the file. This command will display the first 10 lines of the fastq file without opening the entire file. Remember, our files might be too big to open the entire file in a normal text editor as these editors usually load the entire file into memory at once which isn’t always possible. head (and its counterpart tail) is therefore a good command to briefly check if the files look like they’re supposed to. One read in a fastq file consists of 4 lines and looks something like this:
 ```
 head reads.fastq
 ```
 
 ![Screen-Shot-2018-01-07-at-3 40 32-PM-1024x354](https://github.com/genombilim/2023/assets/37342417/1a2bed3d-f76d-442d-b74d-bf32657b3c3b)
+the first line is the name of the sequence, the second line depicts the actual reads, the third line gives a sequence identifier and the length of that read, and the fourth line encodes the Phred scaled quality scores. 
+
 
 Also check the Report folder. What do you see?
 
@@ -166,6 +168,8 @@ https://wiki.hpc.zhaw.ch/hpcuserwiki/index.php/Workload_management:Workload_mana
 
 ### Trim and filter
  
+The large variation in quality scores and the identified biases in sequence content per base should be dealt with before we proceed with our analyses. We will do this in two steps. First, we will remove the low quality bases at the beginning and the end of the reads (trimming). In a second filtering step we will then remove all reads that have a high number of low-quality base calls in the middle section. 
+
 We’ll trim and filter the reads using the filter.sh script. 
 ```
 cat trim_filter.sh
@@ -181,9 +185,24 @@ If you have time:
 
 ### Check out the Quality
 ![Screen-Shot-2018-01-07-at-1 36 09-PM-1024x713](https://github.com/genombilim/2023/assets/37342417/05a343ee-eed5-472c-86c0-08c1afa838ae)
-- Compare the read sequence before and after trimming and filtering using the quality.sh script. Check the contents and run it.
-- The script will create html files for each reads file you have. Download those by right click and then double click on them in your local devide to open them online. What difference do you notice? Why do you think?
 
+Each character there represents a quality value. Phred quality scores Q are defined as a property, which is logarithmically related to the base-calling error probabilities P. For example, if Phred assigns a quality score of 30 to a base, the chances that this base is called incorrectly are 10^((-30)/10)=0.001. This means that 1 out of 1000 calls with this quality score is actually wrong. Most studies put the threshold of base quality at 20 or more ideally at 30.
+
+- Compare the read sequence before and after trimming and filtering using the quality.sh script. Check the contents and run it.
+- The script will create html files for each reads file you have. Download those by right click and then double click on them in your local devide to open them online. In these files, some general statistics about the sequences are displayed.
+- The basic statistics are some very basic facts about your sequence library such as the number of reads, GC content and sequence lengths. The number of reads in the library is usually the first thing to look at. Although it is no guarantee for good data, a high read count is usually a good sign.
+- Click on “Per base sequencing quality” on the left. A boxplot is displayed. On the x-axis you can see the position within the read and on the y-axis the phred scaled quality score distribution across all reads at this position.
+•	What do you notice regarding the shape of the curve?
+
+The pattern we see here is quite common for illumina short read libraries: The read quality is slightly lower at the beginning and at the end of the read. We see the consequences of these lower sequencing quality scores when we look at the “Per base sequence content” (select the report via the list on the left). This report illustrates the frequency of each base across all reads on this position.
+
+•	When looking at the report, what do you notice concerning the base frequencies and how does it connect to the overall quality graph above?
+
+- What differences do you notice between plots? Why do you think?
+- 
+•	We do not want to use bad quality base calls for our alignments and variant calling later on. Why? What would be the risk if we DID use all reads despite low sequencing quality?
+
+•	Why do you think it makes sense to do the trimming first?
 This is the website of the program we used: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
   
 ### Alignment to the reference genome
