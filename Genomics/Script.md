@@ -186,7 +186,12 @@ cp chrM.fa ref.fasta
 - Visualize the aligned sequences
  ```   
 samtools tview -d C alignment_sorted.bam ref.fasta
- ```   
+ ```
+
+Here you may find more information on aligment files: https://samtools.github.io/hts-specs/SAMv1.pdf
+
+And this is the website of the tools we use for alignment: http://samtools.sourceforge.net/samtools.shtml
+
 ### Visualize the sequence depth
 
 First type the code below:
@@ -200,3 +205,4 @@ We will use the variants.sh file for this. As usual, make your own copy and run 
 ```
 bcftools stats calls.vcf.gz
 ```     
+Here is more information on the VCF files: http://samtools.github.io/hts-specs/VCFv4.2.pdf
