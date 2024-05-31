@@ -241,13 +241,20 @@ Here you may find more information on aligment files: https://samtools.github.io
 And this is the website of the tools we use for alignment: http://samtools.sourceforge.net/samtools.shtml
 
 ### Visualize the sequence depth
-
+Of course we are now interested in how much of the mitochondrial genome we actually cover with our reads (and how many times we cover each position in the genome). Follow the instructions below to create a scatterplot in python.
 First type the code below:
 ```
 samtools depth alignment_sorted.bam > depth.csv
 ```
 Download the file. Then open the script Plot Depth.ipynb in Google Colab by choosing the repository name as acg-team.
 
+•	What is the lowest depth in your dataset? What does it mean?
+
 ### Identify the Variants
-We will use the variants.sh file for this. This will create a variant call file and some plots of the variants under a directory called Plots. Check the substitutions.0.png plot. Compare with each other. Would it be possible to find similar or different patterns among your samples?
+Last step is mapping the variants between the reads and the reference genome. To this end, we will use SAMTools which provides various utilities for manipulating alignments in the SAM format, including sorting, merging, indexing and generating alignments in a per-position format. 
+The aligner cannot always assign a read to its point of origin with high confidence. For instance, a read that originated inside a repeat element might align equally well to many occurrences of the element throughout the genome, leaving the aligner with no basis for preferring one over the others.
+
+Aligners characterize their degree of confidence by reporting mapping quality, just like read quality scores. A mapping quality of 10 or less indicates that there is at least a 1 in 10 chance that the read truly originated elsewhere. Ideally, you will filter out bases with read qualities lower than 30 but also with mapping qualities lower than 10. In our case, the alignments are already good, so we will skip this step. 
+
+We will use the variants.sh script for this. This will create a variant call file and some plots of the variants under a directory called Plots. Check the substitutions.0.png plot. Compare with each other. Would it be possible to find similar or different patterns among your samples?
 Here is more information on the VCF files: http://samtools.github.io/hts-specs/VCFv4.2.pdf
