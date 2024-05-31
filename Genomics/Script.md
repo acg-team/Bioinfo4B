@@ -157,7 +157,9 @@ If you have time:
 
 - Type command -h to explore what each paramater does and take note in your worksheet.
 -  Check out the fastx-toolkit content with a pair: http://hannonlab.cshl.edu/fastx_toolkit/commandline.html List two commands that look potentially useful, explore those and share with others. 
- 
+
+### Check out the Quality
+![Screen-Shot-2018-01-07-at-1 36 09-PM-1024x713](https://github.com/genombilim/2023/assets/37342417/05a343ee-eed5-472c-86c0-08c1afa838ae)
 - Compare the read sequence before and after trimming and filtering
 ```
 fastqc reads.fastq
