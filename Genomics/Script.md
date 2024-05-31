@@ -116,6 +116,14 @@ mv SRR.... reads.fastq
 
 ![paired-end1](https://github.com/genombilim/2023/assets/37342417/3a672293-bb62-41b7-a361-0877512b8519)
 
+Let's check out the file.
+```
+head reads.fastq
+```
+
+![Screen-Shot-2018-01-07-at-3 40 32-PM-1024x354](https://github.com/genombilim/2023/assets/37342417/1a2bed3d-f76d-442d-b74d-bf32657b3c3b)
+
+
 Below is the link to the sra-toolkit. Explore it, when you have time:
 
 https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit  
