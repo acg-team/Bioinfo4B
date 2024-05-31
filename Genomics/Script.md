@@ -167,8 +167,11 @@ fastqc reads_trimmed.fastq
 fastqc reads_filtered.fastq
 ```
 Download those by right click and then double click on them to open them online. What difference do you notice? Why do you think?
+
+This is the website of the program we used: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
   
 ### Alignment to the reference genome
+![image003](https://github.com/genombilim/2023/assets/37342417/e78cd5cd-4c55-4a0c-ac11-53b8b45e6a6b)
 - Download the reference genome for the human mitochondria. For this, go to UCSC genome browser, choose Download, Human, Chromosomes and find the mitochondrial genome sequence. Copy-paste below where you see the word link:
 ```
 python -m wget ‘link’
