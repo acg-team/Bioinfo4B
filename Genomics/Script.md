@@ -1,17 +1,20 @@
 # Genomics practice:
 
-You will the following commands by one by through copy-pasting. Make sure there is no auto-correction happening with the words, dots, spaces, signs. Whenever you are asked a yes or no question or something like y/n comes up type y and press enter to continue.
+You will be following commands by one by through copy-pasting. Make sure there is no auto-correction happening with the words, dots, spaces, signs. Whenever you are asked a yes or no question or something like y/n comes up type y and press enter to continue.
+
+First, open the Visual Studio Code:
+connect to the server and move to the course folder 
 
 - Download the Files folder to your laptop from here: https://github.com/acg-team/Bioinfo4B
 - Initiate Anaconda by running the program
 - Open a terminal: For mac: type terminal in your search and click on it. For windows: open a terminal in Anaconda prompt. 
 - Create a directory called Genomics in your Documents and move everything inside the Files folder you downloaded in there. Use the following code
 ```
-			cd Documents
-			mkdir Genomics
-			cp ../Downloads/Files/* Genomics
-			cd Genomics 
-			ls
+cd Documents
+mkdir Genomics
+cp ../Downloads/Files/* Genomics
+cd Genomics 
+ls
 ```
 - First, set the environment that will have all the packages we need. Thisa will take about 15 minutes.
 ```
