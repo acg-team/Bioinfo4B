@@ -54,6 +54,13 @@ First, let's set the environment that will have all the packages we need.
 ```
 conda activate Env_Bioinfo4B
 ```
+
+
+This diagram gives you an idea, what genomcs deal with :
+
+
+![Steps-in-next-generation-sequencing-A-Extracted-DNA-is-randomly-broken-into-1000-bp](https://github.com/genombilim/2023/assets/37342417/6b4693c3-77b5-46e3-b74d-467425c933f8)
+
 ### download the reads
 Then, get your short reads using the sra-toolkit. You'll send this as a job to the server. This way, we avoid programming on the main node, which would make the server too busy. First open the download.sh and look inside:
 ```
@@ -105,9 +112,7 @@ Check if it runs/is finished running etc.:
 squeue
 ```
 
-Once the job is done, you will have two fastq files in your folder. This is the process of getting a fastq file:
-
-![Steps-in-next-generation-sequencing-A-Extracted-DNA-is-randomly-broken-into-1000-bp](https://github.com/genombilim/2023/assets/37342417/6b4693c3-77b5-46e3-b74d-467425c933f8)
+Once the job is done, you will have two fastq files in your folder. 
 
 One for the forward reads that ends with _1 and one for the reverse reads, ending with _2. For simplicity, we will work with forward reads. Please change the name of the file as below:
 ```
