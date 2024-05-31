@@ -2,7 +2,7 @@
 
 You will be following commands by one by through copy-pasting. Make sure there is no auto-correction happening with the words, dots, spaces, signs. Whenever you are asked a yes or no question or something like y/n comes up type y and press enter to continue.
 
-First, open the Visual Studio Code:
+First, open the Visual Studio Code. In your first time, you will choose the ssh remote connection option and this will install some necassary 
 connect to the server and move to the course folder 
 
 - Download the Files folder to your laptop from here: https://github.com/acg-team/Bioinfo4B
