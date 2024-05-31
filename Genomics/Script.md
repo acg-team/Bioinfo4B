@@ -3,21 +3,21 @@
 Here are your ZHAW credentials again. Connect to the ZHAW network, using these if you did not already. These are also your HPC credentials. In your first time, you will be asked to change the password for the HPC.
 
 
-Xavier	Delfosse	delfoxav@students.zhaw.ch	delfoxav	
+Xavier	delfoxav	
 
-Hiu Man	Grisch	hiuman.grisch@yahoo.com 	usrn0016	TweJ$3Xsrc
+Hiu Man	usrn0016	TweJ$3Xsrc
 
-Lovasoa Manuelle Sylviane	Rakotozafy	lovasoa.rakotozafy@uzh.ch	usrn0017	sW4$Hkcrmt
+Lova usrn0017	sW4$Hkcrmt
 
-Rebeca	Scalco	rebeca.scalco@unibe.ch 	usrn0018	py3mLhqx!U
+Rebeca	usrn0018	py3mLhqx!U
 
-Hana	Zemlickova	zemlihan@students.zhaw.ch 	zemlihan	ks#@8MK94U
+Hana zemlihan	ks#@8MK94U
 
-Besmira	Sabani	sabn@zhaw.ch	sabn	
+Besmira	 sabn	
 
-Philipp	Heider	philipp-heider@outlook.com	usrn0019	ks#@8MK94U
+Philipp	Heider	usrn0019	ks#@8MK94U
 
-Emmanuelle	Mohbat	manu.mohbat@gmail.com	usrn0020	D8N7YsuhkO
+Emmanuelle	usrn0020	D8N7YsuhkO
 
 ![image](https://github.com/acg-team/Bioinfo4B/assets/26571015/ac0e4a70-0ba8-40f1-aa5e-6efd0b25273b)
 
