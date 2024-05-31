@@ -101,7 +101,7 @@ vim tugce_download.sh
 Inside, you can use the up,down, left, right arrows to move in the file.
 Press i in order to insert text in the file.
 Go to where you see an SRR ID and change it to yours.
-Press esc tab and then type x: in order to leave.
+Press esc tab and then type :x in order to leave.
 
 Run the code: 
 ```
