@@ -180,6 +180,9 @@ cp chrM.fa ref.fasta
   ```    
 - Align the reads to the reference using the script align.sh. As usual, copy it to your folder and run it.
 
+- You will notice that there is an indexing step. This figure is a visual depiction of the indexing:
+- <img width="578" alt="index_kmer" src="https://github.com/genombilim/2023/assets/37342417/aa5fae6f-a6b0-4cc0-a2fc-12feddf0c7f9">
+
 - Visualize the aligned sequences
  ```   
 samtools tview -d C alignment_sorted.bam ref.fasta
