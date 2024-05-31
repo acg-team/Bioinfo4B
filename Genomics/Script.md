@@ -76,7 +76,7 @@ ls
 ```
 
 Ok, now, we will download the reads. Use the table below in order to find the ID of the read you are assigned to:
-Table for who works on which reads:
+
 
 Xavier: SRR1583064
 
@@ -140,17 +140,17 @@ https://wiki.hpc.zhaw.ch/hpcuserwiki/index.php/Getting_started:Submit_a_job
 https://wiki.hpc.zhaw.ch/hpcuserwiki/index.php/Workload_management:Workload_management_(Slurm):Running_a_job_on_the_cluster
 
 
-### Filter and trim
+### Trim and filter
  
 We’ll trim and filter the reads using the filter.sh script. Please copy this script to your own folder, as you change the name. Then we'll look in it again and send it as a job. 
 ```
-cp ../filter.sh tugce_filter.sh
+cp ../filter.sh tugce_trim_filter.sh
 ```
 ```
-cat tugce_filter.sh
+cat tugce_trim_filter.sh
 ```
 ```
-sbatch tugce_filter.sh
+sbatch tugce_trim_filter.sh
 ```
 
 If you have time:
