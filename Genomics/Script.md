@@ -105,10 +105,16 @@ Check if it runs/is finished running etc.:
 squeue
 ```
 
-Once the job is done, you will have two files in your folder. One for the forward reads that ends with _1 and one for the reverse reads, ending with _2. For simplicity, we will work with forward reads. Please change the name of the file as below:
+Once the job is done, you will have two fastq files in your folder. This is the process of getting a fastq file:
+
+![Steps-in-next-generation-sequencing-A-Extracted-DNA-is-randomly-broken-into-1000-bp](https://github.com/genombilim/2023/assets/37342417/6b4693c3-77b5-46e3-b74d-467425c933f8)
+
+One for the forward reads that ends with _1 and one for the reverse reads, ending with _2. For simplicity, we will work with forward reads. Please change the name of the file as below:
 ```
 mv SRR.... reads.fastq
 ```
+
+![paired-end1](https://github.com/genombilim/2023/assets/37342417/3a672293-bb62-41b7-a361-0877512b8519)
 
 Below is the link to the sra-toolkit. Explore it, when you have time:
 
@@ -119,11 +125,6 @@ Also, here are the HPC Cluster's wiki pages on submitting and running a job:
 https://wiki.hpc.zhaw.ch/hpcuserwiki/index.php/Getting_started:Submit_a_job
 
 https://wiki.hpc.zhaw.ch/hpcuserwiki/index.php/Workload_management:Workload_management_(Slurm):Running_a_job_on_the_cluster
-
-This is the process of getting a fastq file:
-
-
-![Steps-in-next-generation-sequencing-A-Extracted-DNA-is-randomly-broken-into-1000-bp](https://github.com/genombilim/2023/assets/37342417/6b4693c3-77b5-46e3-b74d-467425c933f8)
 
 
 ### Filter and trim
