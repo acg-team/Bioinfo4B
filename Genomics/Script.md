@@ -1,6 +1,7 @@
-# Genomics practice:
+# Genomics:
 
-Here are your ZHAW credentials again. Connect to the ZHAW network, using these if you did not already. These are also your HPC credentials. In your first time, you will be asked to change the password for the HPC.
+## Preparation 
+Here are your ZHAW credentials. Connect to the ZHAW network, using these. These are also your HPC credentials. In your first time, you will be asked to change the password for the HPC.
 
 
 Xavier:	delfoxav	
@@ -21,19 +22,42 @@ Emmanuelle:	usrn0020	D8N7YsuhkO
 
 ![image](https://github.com/acg-team/Bioinfo4B/assets/26571015/ac0e4a70-0ba8-40f1-aa5e-6efd0b25273b)
 
-
-
-First, open the Visual Studio Code. In your first time, you will choose the ssh remote connection option and this will set up your connection via installing some necassary stuff. Once connected, a new terminal using the menu. In the terminal, write the following code to move to the course folder in the terminal.
+First, open the Visual Studio Code. In your first time, you will choose the ssh remote connection option and this will set up your connection via installing some necassary stuff. Once connected, open a new terminal using the menu. In the terminal, write the following code to move to the course folder in the terminal. This is where you will be working.
 
 ```
 cd /cfs/earth/scratch/icls/shared/bioinfo4beginners
 ```
+Check out the folders here with the command ls.
 
-- First, set the environment that will have all the packages we need. 
+```
+ls
+```
+Move to the Genomics folder. 
+
+```
+cd Genomics
+```
+Then create your own directory in there with your name. Replace myname with yours before writing ;). This is where you will be saving all your files.
+```
+mkdir tugce
+```
+Let's check if you did create your own folder:
+```
+ls
+```
+
+## Practice 
+Ok, let's begin! 
+First, let's set the environment that will have all the packages we need. 
 ```
 conda activate Env_Bioinfo4B
 ```
-- Meanwhile, get your short reads using the sra-toolkit. For this, you'll actually install the program yourself. Go to the website: https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit  Follow the instructions to download and install the toolkit. Open a tab in your terminal, make sure that the environment creation code is still running. 
+Then, get your short reads using the sra-toolkit. You'll send this as a job to the server, since we avoid programming on the main node. This would make the server too busy. First open the download.sh and look inside:
+```
+cat download.sh
+```
+Now, copy this to your own 
+https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit  Follow the instructions to download and install the toolkit. Open a tab in your terminal, make sure that the environment creation code is still running. 
 
 Table for who works on which reads:
 
