@@ -65,16 +65,8 @@ cp download.sh tugce/tugce_download.sh
 ```
 Let's see:
 ```
-cd tugce/tugce_download.sh
 ls
 ```
-Next, you will see how to edit the file. For this we will use the vim tool:
-```
-vim tugce_download.sh
-```
-Inside, you can use the up,down, left, right arrows to move in the file.
-Press i in order to insert text in the file.
-Press esc tab and then type x: in order to leave.
 
 Ok, now, we will download the reads. Use the table below in order to find the ID of the read you are assigned to:
 Table for who works on which reads:
@@ -95,6 +87,15 @@ Phillipp:SRR1583058
 
 Manu: SRR1583057
 
+Next, you will edit the file to download the sequence assigned to you. For this we will use the vim tool:
+```
+vim tugce_download.sh
+```
+Inside, you can use the up,down, left, right arrows to move in the file.
+Press i in order to insert text in the file.
+Go to where you see an SRR ID and change it to yours.
+Press esc tab and then type x: in order to leave.
+
 Run the code: 
 ```
 sbatch tugce_download.sh
@@ -104,7 +105,12 @@ Check if it runs/is finished running etc.:
 squeue
 ```
 
-Below is the link to the sr-toolkit. Explore it, when you have time:
+Once the job is done, you will have two files in your folder. One for the forward reads that ends with _1 and one for the reverse reads, ending with _2. For simplicity, we will work with forward reads. Please change the name of the file as below:
+```
+mv SRR.... reads.fastq
+```
+
+Below is the link to the sra-toolkit. Explore it, when you have time:
 
 https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit  
 
@@ -117,66 +123,53 @@ https://wiki.hpc.zhaw.ch/hpcuserwiki/index.php/Workload_management:Workload_mana
 
 ### Filter and trim
  
-We’ll trim and filter the reads using the filter.sh script.
+We’ll trim and filter the reads using the filter.sh script. Please copy this script to your own folder, as you change the name. Then we'll look in it again and send it as a job. 
 ```
-			fastx_trimmer -f 20 -l 240 -i reads.fastq -o reads_trimmed.fastq
-			fastq_quality_filter -q 30 -p 95 -i reads_trimmed.fastq -o reads_filtered.fastq
-  ```    
+cp ../filter.sh tugce_filter.sh
+```
+```
+cat tugce_filter.sh
+```
+```
+sbatch tugce_filter.sh
+```
+
+If you have time:
+
 - Type command -h to explore what each paramater does and take note in your worksheet.
 -  Check out the fastx-toolkit content with a pair: http://hannonlab.cshl.edu/fastx_toolkit/commandline.html List two commands that look potentially useful, explore those and share with others. 
  
 - Compare the read sequence before and after trimming and filtering
 ```
-			fastqc
-  ```
+fastqc reads.fastq
+fastqc reads_trimmed.fastq
+fastqc reads_filtered.fastq
+```
+Download those by right click and then double click on them to open them online. What difference do you notice? Why do you think?
   
-  # Alignment to the reference genome
+### Alignment to the reference genome
 - Download the reference genome for the human mitochondria. For this, go to UCSC genome browser, choose Download, Human, Chromosomes and find the mitochondrial genome sequence. Copy-paste below where you see the word link:
 ```
-			python -m wget ‘link’
-			gunzip chrM.fa.gz
-			cp chrM.fa ref.fasta
+python -m wget ‘link’
+gunzip chrM.fa.gz
+cp chrM.fa ref.fasta
   ```    
-- Align the reads to the reference:
-```
-			bowtie2-build ref.fasta ref
-			bowtie2 -x ref -q reads_filtered.fastq -S alignment.sam
-			samtools faidx ref.fasta
-			samtools view -bt ref.fasta.fai alignment.sam > alignment.bam
-			samtools sort alignment.bam -o alignment_sorted.bam
-			samtools index alignment_sorted.bam
- ```    
- 
+- Align the reads to the reference using the script align.sh. As usual, copy it to your folder and run it.
+
 - Visualize the aligned sequences
  ```   
-			samtools tview -d C alignment_sorted.bam ref.fasta
+samtools tview -d C alignment_sorted.bam ref.fasta
  ```   
-- Visualize the sequence depth. First type the code below, then open a console in Jupyter and follow the steps in Plot Depth.ipynb page in the Scripts folder in the GitHub repo.
+### Visualize the sequence depth. 
+
+First type the code below:
 ```
-			samtools depth alignment_sorted.bam > depth.csv
- ```     
-  # Identify the Variants
-- Identify the variants:
+samtools depth alignment_sorted.bam > depth.csv
 ```
-			bcftools mpileup -f ref.fasta alignment_sorted.bam | bcftools call -mv -Ov -o calls.vcf
-			bcftools mpileup -f ref.fasta alignment_sorted.bam | bcftools call -mv -Oz -o calls.vcf.gz
-  ```    
-- Generate your first consensus sequence. Name it after yourself by replacing the <name> with your own.
+Download the file. Then open the script Plot Depth.ipynb in Google Colab by choosing the repository name as acg-team.
+
+### Identify the Variants
+We will use the variants.sh file for this. As usual, make your own copy and run it. Lasty, enter the code below in irder to check out the contents of the vcf file:
 ```
-			bcftools index calls.vcf.gz
-			bcftools consensus calls.vcf.gz -f ref.fasta -o consensus.fasta
-			fasta_formatter -i consensus.fasta -w 70 -o consensus_short.fasta
-			cat consensus_short.fasta | sed -e 's/chrM/<name>/g' > <name>.fasta
-  ```     
-  # Draw a pylogenetic Tree
-- Create a genomes files including yours and the population one:
-```
-			cat <your name>.fasta genomes/* > genomes.fasta
- ```     
-- Create a phylogenetic tree
-```
-			clustalo -i genomes.fasta --outfmt=phylip -o genomes.phy
-			dnaml
-			figtree
-```
-To understand how dnaml works, go to its webiste https://evolution.genetics.washington.edu/phylip/doc/dnaml.html read through its assumptions. With a partner, discuss for each assumption how realistic they are and share what you discussed.
+bcftools stats calls.vcf.gz
+```     
