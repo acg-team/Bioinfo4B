@@ -1,6 +1,20 @@
 # Genomics practice:
 
-You will be following commands by one by through copy-pasting. Make sure there is no auto-correction happening with the words, dots, spaces, signs. Whenever you are asked a yes or no question or something like y/n comes up type y and press enter to continue.
+Here are your ZHAW credentials again. Connect to the ZHAW network, using these if you did not already. These are also your HPC credentials. In your first time, you will be asked to change the password for the HPC.
+
+First name	Surname	Email	USRN	Passwort
+Xavier	Delfosse	delfoxav@students.zhaw.ch	delfoxav	
+Hiu Man	Grisch	hiuman.grisch@yahoo.com 	usrn0016	TweJ$3Xsrc
+Lovasoa Manuelle Sylviane	Rakotozafy	lovasoa.rakotozafy@uzh.ch	usrn0017	sW4$Hkcrmt
+Rebeca	Scalco	rebeca.scalco@unibe.ch 	usrn0018	py3mLhqx!U
+Hana	Zemlickova	zemlihan@students.zhaw.ch 	zemlihan	ks#@8MK94U
+Besmira	Sabani	sabn@zhaw.ch	sabn	
+Philipp	Heider	philipp-heider@outlook.com	usrn0019	ks#@8MK94U
+Emmanuelle	Mohbat	manu.mohbat@gmail.com	usrn0020	D8N7YsuhkO
+
+![image](https://github.com/acg-team/Bioinfo4B/assets/26571015/ac0e4a70-0ba8-40f1-aa5e-6efd0b25273b)
+
+
 
 First, open the Visual Studio Code. In your first time, you will choose the ssh remote connection option and this will set up your connection via installing some necassary stuff. Once connected, a new terminal using the menu. In the terminal, write the following code to move to the course folder in the terminal.
 
