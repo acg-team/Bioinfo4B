@@ -178,9 +178,11 @@ cat trim_filter.sh
 sbatch trim_filter.sh
 ```
 
-If you have time:
+For the trimming: You will have a new fastq file in your working directory. The command above means that we are removing the first 20 bases (-f 20) and that the last position to be kept in the read is 240 (-l 240).
 
-- Type command -h to explore what each paramater does and take note in your worksheet.
+The last command means that we are filtering the dataset for reads that have more than 95% (-p 95) of bases above a sequencing quality of 30 (-q 30). All reads that do not fulfil this criterion will be discarded.
+
+If you have time explore what each paramater does and take note in your worksheet:
 -  Check out the fastx-toolkit content with a pair: http://hannonlab.cshl.edu/fastx_toolkit/commandline.html List two commands that look potentially useful, explore those and share with others. 
 
 ### Check out the Quality
@@ -196,16 +198,19 @@ Each character there represents a quality value. Phred quality scores Q are defi
 
 The pattern we see here is quite common for illumina short read libraries: The read quality is slightly lower at the beginning and at the end of the read. We see the consequences of these lower sequencing quality scores when we look at the “Per base sequence content” (select the report via the list on the left). This report illustrates the frequency of each base across all reads on this position.
 
-•	When looking at the report, what do you notice concerning the base frequencies and how does it connect to the overall quality graph above?
+ •	When looking at the report, what do you notice concerning the base frequencies and how does it connect to the overall quality graph above?
 
 - What differences do you notice between plots? Why do you think?
-- 
+  
 •	We do not want to use bad quality base calls for our alignments and variant calling later on. Why? What would be the risk if we DID use all reads despite low sequencing quality?
 
 •	Why do you think it makes sense to do the trimming first?
+•	Could/should you trim more based on your graphs? What do you think?
 This is the website of the program we used: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
   
 ### Alignment to the reference genome
+Before aligning the reads to the reference mitochondrial genome, we first need to download the human mitochondrial reference sequence. 
+
 ![image003](https://github.com/genombilim/2023/assets/37342417/e78cd5cd-4c55-4a0c-ac11-53b8b45e6a6b)
 - Download the reference genome for the human mitochondria. For this, go to UCSC genome browser, choose Download, Human, Chromosomes and find the mitochondrial genome sequence. Copy-paste below where you see the word link:
 ```
@@ -217,8 +222,15 @@ cp chrM.fa ref.fasta
 ```   
 - Align the reads to the reference using the script align.sh.
 
+- Aligning reads to a genome can be viewed in the general context as string matching. The goal is to find a pattern (the short-read) in a large text (the reference genome), allowing for mismatches and indels. Naively, you can scan the text for the pattern but this is inefficient. There are techniques to pre-process (or index) the text to make queries fast and also that can even compress the size of the text. Bowtie2 uses this technique for ultrafast and memory-efficient aligment of sequencing reads to long reference sequences, which also supports paired-end alignment modes. We use bowtie2 commands to align the short reads. 
+
+First, you index your reference genome, so that reads are quickly aligned. 
 - You will notice that there is an indexing step. This figure is a visual depiction of the indexing:
 - <img width="578" alt="index_kmer" src="https://github.com/genombilim/2023/assets/37342417/aa5fae6f-a6b0-4cc0-a2fc-12feddf0c7f9">
+Note that for each different toolbox like SAMTools or bowtie2, you should index your reference genome by using their own commands. 
+
+Next you align your short reads to the reference genome, using the reference file and your filtered file. 
+It will take some minutes to create the alignment file, which is a SAM file (Sequence Alignment/Map), a human-readable TAB-delimited text format consisting of a header and an alignment section. Each alignment line has 11 mandatory fields for essential alignment information such as mapping position, mapping quality, read quality etc. After completion of the alignment, a brief report will appear in the terminal. Check it to see the total alignment rate of your reads. Finally, you convert your sam file to a bam (Binary Alignment/Map) file, which is simply a binary version of the sam file.
 
 - Visualize the aligned sequences
  ```   
