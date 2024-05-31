@@ -52,23 +52,49 @@ First, let's set the environment that will have all the packages we need.
 ```
 conda activate Env_Bioinfo4B
 ```
-Then, get your short reads using the sra-toolkit. You'll send this as a job to the server, since we avoid programming on the main node. This would make the server too busy. First open the download.sh and look inside:
+Then, get your short reads using the sra-toolkit. You'll send this as a job to the server. This way, we avoid programming on the main node, which would make the server too busy. First open the download.sh and look inside:
 ```
 cat download.sh
 ```
-Now, copy this to your own 
-https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit  Follow the instructions to download and install the toolkit. Open a tab in your terminal, make sure that the environment creation code is still running. 
+Now, copy this to your own folder, don't forget to replce your name with mine.
+```
+cp download.sh tugce/tugce_download.sh
+```
+Let's see:
+```
+cd tugce/tugce_download.sh
+ls
+```
+Next, you will edit the file. For this we will use the vim tool:
+```
+vim tugce_download.sh
+```
+Inside, you can use the up,down, left, right arrows to move in the file.
+Press i in order to insert text in the file.
+Press esc tab and then type x: in order to leave.
 
+Ok, now, we will download the reads. Use the table below in order to find the ID of the read you are assigned to:
 Table for who works on which reads:
 
 Xavier: SRR1583064
+
 Hiu Man:SRR1583063
+
 Lavo: SRR1583062
+
 Rebeca: SRR1583061
+
 Hana: SRR1583060
+
 Besmira: SRR1583059
+
 Phillipp:SRR1583058
+
 Manu: SRR1583057
+
+https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit  Follow the instructions to download and install the toolkit. Open a tab in your terminal, make sure that the environment creation code is still running. 
+
+
 
 ```
 			fastq-dump -I --split-files <type here the ID of the person’s genome assigned to you>
