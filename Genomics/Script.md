@@ -160,7 +160,7 @@ cp chrM.fa ref.fasta
  ```   
 samtools tview -d C alignment_sorted.bam ref.fasta
  ```   
-### Visualize the sequence depth. 
+### Visualize the sequence depth
 
 First type the code below:
 ```
