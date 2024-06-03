@@ -72,6 +72,11 @@ cp /cfs/earth/scratch/icls/shared/bioinfo4beginners/Genomics/Env_Genomics.yml .
 ### Environment
 Ok, let's begin! 
 First, get all the scripts you need from the group folder and copy them to yours. 
+
+Go first to your directory:
+```
+cd /cfs/earth/scratch/usrn0019/
+```
 ```
 cp /cfs/earth/scratch/icls/shared/bioinfo4beginners/Genomics/scripts/* .
 ```
