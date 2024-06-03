@@ -75,7 +75,9 @@ First, get all the scripts you need from the group folder and copy them to yours
 ```
 cp /cfs/earth/scratch/icls/shared/bioinfo4beginners/Genomics/scripts/* .
 ```
-
+```
+cp -r  /cfs/earth/scratch/icls/shared/bioinfo4beginners/Genomics/scripts/sratoolkit.3.1.1-ubuntu64 .
+```
 ### Download the reads
 The study we are going to get our data from is “Maternal age effect and severe germ-line bottleneck in the inheritance of human mitochondrial DNA”. The study has uploaded the short reads it produced in the Sequence Read Archive (SRA). https://www.ncbi.nlm.nih.gov/sra?term=SRP047378
 
