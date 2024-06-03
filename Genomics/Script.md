@@ -61,6 +61,10 @@ Activate the environment by typing the code below:
 ```
 conda activate /cfs/earth/scratch/icls/shared/bioinfo4beginners/Genomics/Env_Genomics
 ```
+Copy the environment file to yourself:
+```
+cp activate /cfs/earth/scratch/icls/shared/bioinfo4beginners/Genomics/Env_Genomics.yml .
+```
 
 
 ## Practice 
