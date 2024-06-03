@@ -76,4 +76,7 @@ The course is taught in English. We’ll be working in bash. You may also use py
 
 There are two days of classes on the last two Fridays of May. Some preliminary reading and preparation materials are provided. First day includes theory introduction and hands-on exercises. The second day includes practical guided work on the group projects, discussions and final presentations.
 
-
+Copy the presentations from here:
+```
+cp /cfs/earth/scratch/icls/shared/bioinfo4beginners/'Practice Slides.pdf' .
+```
