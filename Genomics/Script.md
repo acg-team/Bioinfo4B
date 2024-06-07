@@ -108,7 +108,7 @@ Xavier: SRR1583064
 
 Hiu Man:SRR1583063
 
-Lavo: SRR1583062
+Lova: SRR1583062
 
 Rebeca: SRR1583061
 
@@ -202,6 +202,11 @@ If you have time explore what each paramater does and take note in your workshee
 Each character there represents a quality value. Phred quality scores Q are defined as a property, which is logarithmically related to the base-calling error probabilities P. For example, if Phred assigns a quality score of 30 to a base, the chances that this base is called incorrectly are 10^((-30)/10)=0.001. This means that 1 out of 1000 calls with this quality score is actually wrong. Most studies put the threshold of base quality at 20 or more ideally at 30.
 
 - Compare the read sequence before and after trimming and filtering using the quality.sh script. Check the contents and run it.
+- Type the following to open the html files (this will list all the content in your working directory. So you may use it also to download any files from your folder):
+```
+python -m http.server
+```
+
 - The script will create html files for each reads file you have. Download those by right click and then double click on them in your local devide to open them online. In these files, some general statistics about the sequences are displayed.
 - The basic statistics are some very basic facts about your sequence library such as the number of reads, GC content and sequence lengths. The number of reads in the library is usually the first thing to look at. Although it is no guarantee for good data, a high read count is usually a good sign.
 - Click on “Per base sequencing quality” on the left. A boxplot is displayed. On the x-axis you can see the position within the read and on the y-axis the phred scaled quality score distribution across all reads at this position.
