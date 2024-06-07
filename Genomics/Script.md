@@ -249,7 +249,10 @@ samtools tview -d C alignment_sorted.bam ref.fasta
  ```
 Here you may find more information on aligment files: https://samtools.github.io/hts-specs/SAMv1.pdf
 
-And this is the website of the tools we use for alignment: http://samtools.sourceforge.net/samtools.shtml
+And these are the websites of the tools we use for alignment: 
+https://bowtie-bio.sourceforge.net/bowtie2/index.shtml
+
+http://samtools.sourceforge.net/samtools.shtml
 
 ### Visualize the sequence depth
 Of course we are now interested in how much of the mitochondrial genome we actually cover with our reads (and how many times we cover each position in the genome). Follow the instructions below to create a scatterplot in python.
