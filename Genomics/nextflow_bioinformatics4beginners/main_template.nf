@@ -28,9 +28,9 @@ process TRIM_QUALITY_FILTER {
 process ALIGNMENT {
     conda '<INSERT_CONDA_ENV_PATH>'
     input:
-        // Define input files (e.g., reference genome and filtered reads)
+        // Define input files
     output:
-        // Define output files (e.g., sorted BAM file)
+        // Define output files 
     script:
         """
         // Add alignment and processing commands here
@@ -43,9 +43,9 @@ process VISUALIZATION {
     conda '<INSERT_CONDA_ENV_PATH>'
     publishDir params.outdir // Output of this process will be saved to outdir
     input:
-        // Define input files (e.g., sorted BAM file and reference genome)
+        // Define input files
     output:
-        // Define output files (e.g., depth.csv)
+        // Define output files
     script:
         """
         // Add depth calculation commands here
@@ -60,9 +60,9 @@ process VARIANT_CALLING {
     conda '<INSERT_CONDA_ENV_PATH>'
     publishDir params.outdir // Output of this process will be saved to outdir
     input:
-        // Define input files (e.g., sorted BAM file and reference genome)
+        // Define input files
     output:
-        // Define output files (e.g., calls.vcf, calls.vchk)
+        // Define output files
     script:
         """
         // Add variant calling commands here
