@@ -67,7 +67,7 @@ process VISUALIZATION {
 // Step 2: Call variants with `bcftools call`.
 // Step 3: Generate variant statistics with `bcftools stats`.
 process VARIANT_CALLING {
-    conda '/cfs/earth/scratch/shared/bioinfo4beginners/Genomics/Env_Genomics.yml'
+    conda '/cfs/earth/scratch/shared/bioinfo4beginners/Genomics/Env_Genomics'
     publishDir params.outdir // Output of this process will be save to outdir
     input:
         path bam
