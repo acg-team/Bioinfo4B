@@ -1,0 +1,25 @@
+name: Env_Genomics
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.8
+  - gangstr
+  - bwa-mem2
+  - cyvcf2
+  - figtree
+  - samtools
+  - phylip
+  - numpy
+  - pandas
+  - seaborn
+  - biopython
+  - notebook
+  - fastx_toolkit
+  - fastqc
+  - python-wget
+  - bowtie2
+  - bcftools
+  - clustalo
+  - cnvkit

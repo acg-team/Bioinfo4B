@@ -1,15 +1,12 @@
-# Nextflow Pipeline Documentation
-
 ## Table of Contents
-1. [Quick Start](#quick-start)
-2. [Pipeline Output](#pipeline-output)
+1. [Run on HPC](#run-on-hpc)
+2. [Run Locally](#run-locally)
 3. [Pipeline Details](#pipeline-details)
-    - [Setup Nextflow](#setup-nextflow)
     - [Profiles](#profiles)
     - [Configuration Files](#configuration-files)
     - [SLURM Configuration](#slurm-configuration)
 
-## Quick Start
+## Run on HPC
 
 This section provides a **quick setup** guide for running the pipeline on **HPC** with test data.
 
@@ -38,9 +35,13 @@ conda config --add channels bioconda
 conda config --add channels conda-forge
 ```
 
-Now, create and activate the conda environment:
+Now, create the conda environment:
 ```sh
 conda create --name env_nf nextflow
+```
+
+And activate it:
+```sh
 conda activate env_nf
 ```
 
@@ -67,34 +68,53 @@ This command:
 
 After execution, results will be stored in the `results/` directory.
 
-## Pipeline Output
-The pipeline generates:
-- `calls.vcf` - Contains identified variants
-- `calls.vchk` - Variant statistics
+## Run Locally
 
-Intermediate files are **not saved**. To keep specific outputs, modify processes using:
+This section provides instructions for running the pipeline on a local machine.
 
-```nextflow
-publishDir params.outdir // Saves process outputs to outdir
-```
+#### **1. Download Source Code and Input Files**
 
-Modify this in `main.nf` for the processes where you want to retain intermediate files.
+Clone the pipeline repository or download .zip file and navigate to the project directory. Download input fastq file and reference.
 
+#### **2. Create Conda Environment**
 
-## Pipeline Details
+First, set up Bioconda according to the Bioconda documentation:
 
-![Pipeline Diagram](img/mermaid-diagram-2025-02-13-145840.png)
-
-### Setup Nextflow
-To run this pipeline, first install and activate Nextflow using conda:
 ```sh
 conda config --add channels bioconda
 conda config --add channels conda-forge
 ```
+
+Now, create the conda environment:
+
 ```sh
 conda create --name env_nf nextflow
+```
+
+and activate it:
+
+```sh
 conda activate env_nf
 ```
+
+#### **3. Run the Pipeline Locally**
+
+Navigate to the source directory and execute the pipeline:
+
+```sh
+nextflow run main_local.nf -profile conda \
+    --input reads.fastq  \
+    --reference chrM.fa \
+    --outdir results
+```
+Pipeline will first create new conda enviroment from `Env_Genomics.yml` and it could take around 20 minutes.
+After that it will execute in about 5 minutes. 
+
+After execution, results will be stored in the `results/` directory.
+
+## Pipeline Details
+
+![Pipeline Diagram](img/mermaid-diagram-2025-02-13-145840.png)
 
 ### Profiles
 Profiles describe the environment Nextflow will use to run processes, specified by the `-profile <conda>`. In this pipeline, only the `conda` profile is supported.
@@ -109,7 +129,28 @@ The conda environment is described with key word `conda` in each process in `mai
 To modify the environment, update the conda path in `main.nf`.
 
 ### Configuration Files
-Each Nextflow pipeline has a default configuration file called `nextflow.config`. If additional configuration files are needed (e.g., for running the pipeline on an HPC system), they can be included using the `-c` parameter when executing Nextflow.
+
+Each Nextflow pipeline has a default configuration file called `nextflow.config`. This file allows defining parameters to be used in `main.nf`.
+
+All input parameters (e.g., input files, reference genome, output directory) can be specified in `nextflow.config` using `params`. These parameters are accessible in `main.nf` through `params.<param_name>`.
+
+For example, instead of specifying inputs in the command line, they can be provided in `nextflow.config`:
+
+```nextflow
+params {
+    input = "input/reads.fastq"
+    reference = "input/chrM.fa"
+    outdir = "results"
+}
+```
+
+This allows running the pipeline without explicitly passing parameters in the command line:
+
+```sh
+nextflow run main.nf -profile conda
+```
+
+If additional configuration files are needed (e.g., for running the pipeline on an HPC system), they can be included using the `-c` parameter when executing Nextflow.
 
 For example:
 
@@ -118,6 +159,7 @@ nextflow run main.nf -profile conda -c slurm.config
 ```
 
 This allows different configurations to be applied without modifying the default `nextflow.config` file.
+
 
 ### SLURM Configuration
 The `slurm.config` file is used to run Nextflow with SLURM. It:

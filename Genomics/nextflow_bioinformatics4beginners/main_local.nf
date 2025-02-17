@@ -9,7 +9,7 @@ nextflow.enable.dsl=2
 // - Last position kept at 240 (-l 240)
 // - Filter reads with at least 95% of bases above quality 30 (-q 30)
 process TRIM_QUALITY_FILTER {
-    conda '/cfs/earth/scratch/shared/bioinfo4beginners/Genomics/Env_Genomics' // Use already existing conda enviroment
+    conda 'Env_Genomics.yml' // Use already existing conda enviroment
     publishDir params.outdir // Output of this process will be save to outdir
     input:
         path reads
@@ -30,7 +30,7 @@ process TRIM_QUALITY_FILTER {
 // Step 3: Convert the SAM file to BAM and sort it.
 // Step 4: Index the sorted BAM file.
 process ALIGNMENT {
-    conda '/cfs/earth/scratch/shared/bioinfo4beginners/Genomics/Env_Genomics'
+    conda 'Env_Genomics.yml'
     publishDir params.outdir // Output of this process will be save to outdir
     input:
         path reference
@@ -50,7 +50,7 @@ process ALIGNMENT {
 }
 
 process VISUALIZATION {
-    conda "/cfs/earth/scratch/shared/bioinfo4beginners/Genomics/Env_Genomics"
+    conda 'Env_Genomics.yml'
     publishDir params.outdir // Output of this process will be save to outdir
     input:
         path bam
@@ -69,7 +69,7 @@ process VISUALIZATION {
 // Step 2: Call variants with `bcftools call`.
 // Step 3: Generate variant statistics with `bcftools stats`.
 process VARIANT_CALLING {
-    conda '/cfs/earth/scratch/shared/bioinfo4beginners/Genomics/Env_Genomics'
+    conda 'Env_Genomics.yml'
     publishDir params.outdir // Output of this process will be save to outdir
     input:
         path bam
