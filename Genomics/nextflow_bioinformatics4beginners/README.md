@@ -32,11 +32,18 @@ conda init bash
 After running this command, **close and reopen your terminal**. After that you will need to start from step 1.
 
 #### **3. Create Conda Environment**
+First, set up Bioconda according to the Bioconda documentation, notably setting up channels:
+```sh
+conda config --add channels bioconda
+conda config --add channels conda-forge
+```
+
 Now, create and activate the conda environment:
 ```sh
-conda create --name env_nf python=3.12 bioconda/label/cf201901::nextflow
+conda create --name env_nf nextflow
 conda activate env_nf
 ```
+
 #### **4. Copy Source Code**
 Copy the pipeline source folder and prepare the output directory:
 ```sh
@@ -80,9 +87,12 @@ Modify this in `main.nf` for the processes where you want to retain intermediate
 
 ### Setup Nextflow
 To run this pipeline, first install and activate Nextflow using conda:
-
 ```sh
-conda create --name env_nf python=3.12 nextflow
+conda config --add channels bioconda
+conda config --add channels conda-forge
+```
+```sh
+conda create --name env_nf nextflow
 conda activate env_nf
 ```
 
