@@ -20,19 +20,23 @@ cd $LSFM_CLUSTER_SCRATCH_USER_PATH
 mkdir bio4beginners_nextflow
 cd bio4beginners_nextflow
 ```
-
 #### **2. Load Required Modules**
 Load the necessary HPC modules:
 ```sh
 module load USS/2022 gcc/9.4.0-pe5.34 miniconda3/4.12.0
 ```
-
-#### **3. Activate conda Environment**
-Use the existing conda environment:
+If you are using conda for the first time, you need to initialize it:
 ```sh
-conda activate /cfs/earth/scratch/shared/bioinfo4beginners/Genomics/bio4beginners_nextflow/env_nf
+conda init bash
 ```
+After running this command, **close and reopen your terminal**. After that you will need to start from step 1.
 
+#### **3. Create Conda Environment**
+Now, create and activate the conda environment:
+```sh
+conda create --name env_nf python=3.12 bioconda/label/cf201901::nextflow
+conda activate env_nf
+```
 #### **4. Copy Source Code**
 Copy the pipeline source folder and prepare the output directory:
 ```sh
