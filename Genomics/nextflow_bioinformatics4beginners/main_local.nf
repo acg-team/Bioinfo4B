@@ -11,6 +11,7 @@ nextflow.enable.dsl=2
 process TRIM_QUALITY_FILTER {
     conda 'Env_Genomics.yml' // Use already existing conda enviroment
     publishDir params.outdir // Output of this process will be save to outdir
+    container 'ghcr.io/kondratievaolesya/bio_env:latest'
     input:
         path reads
     output:
@@ -32,6 +33,7 @@ process TRIM_QUALITY_FILTER {
 process ALIGNMENT {
     conda 'Env_Genomics.yml'
     publishDir params.outdir // Output of this process will be save to outdir
+    container 'ghcr.io/kondratievaolesya/bio_env:latest'
     input:
         path reference
         path reads
@@ -52,6 +54,7 @@ process ALIGNMENT {
 process VISUALIZATION {
     conda 'Env_Genomics.yml'
     publishDir params.outdir // Output of this process will be save to outdir
+    container 'ghcr.io/kondratievaolesya/bio_env:latest'
     input:
         path bam
         path reference
@@ -71,6 +74,7 @@ process VISUALIZATION {
 process VARIANT_CALLING {
     conda 'Env_Genomics.yml'
     publishDir params.outdir // Output of this process will be save to outdir
+    container 'ghcr.io/kondratievaolesya/bio_env:latest'
     input:
         path bam
         path reference

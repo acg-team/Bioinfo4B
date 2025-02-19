@@ -76,6 +76,12 @@ This section provides instructions for running the pipeline on a local machine.
 
 Clone the pipeline repository or download .zip file and navigate to the project directory. Download input fastq file and reference.
 
+```sh
+cp -r /cfs/earth/scratch/shared/bioinfo4beginners/Genomics/bio4beginners_nextflow/source .
+cd source
+mkdir results
+```
+
 #### **2. Create Conda Environment**
 
 First, set up Bioconda according to the Bioconda documentation:
@@ -103,21 +109,34 @@ Navigate to the source directory and execute the pipeline:
 
 ```sh
 nextflow run main_local.nf -profile conda \
-    --input reads.fastq  \
-    --reference chrM.fa \
-    --outdir results
+    --input $(realpath input/reads.fastq)  \
+    --reference $(realpath input/chrM.fa) \
+    --outdir $(realpath results)
 ```
-Pipeline will first create new conda enviroment from `Env_Genomics.yml` and it could take around 20 minutes.
+
+Pipeline will first create new conda enviroment from `Env_Genomics.yml` and it could take around 10 minutes.
 After that it will execute in about 5 minutes. 
 
 After execution, results will be stored in the `results/` directory.
+
+#### **4. Run the Pipeline with docker**
+
+If Conda fails, you can run it with any container, such as **Docker, Podman, or Singularity**. Just change the profile to `-profile docker`.  
+If your container software requires **root privileges**, then you will also need to run Nextflow with elevated privileges:  
+
+```sh
+nextflow run main_local.nf -profile docker \
+    --input $(realpath input/reads.fastq)  \
+    --reference $(realpath input/chrM.fa) \
+    --outdir $(realpath results)
+```
 
 ## Pipeline Details
 
 ![Pipeline Diagram](img/mermaid-diagram-2025-02-13-145840.png)
 
 ### Profiles
-Profiles describe the environment Nextflow will use to run processes, specified by the `-profile <conda>`. In this pipeline, only the `conda` profile is supported.
+Profiles describe the environment Nextflow will use to run processes, specified by the `-profile <conda>`. In this pipeline, `conda, docker, podman, singularity` profiles are supported.
 
 The conda environment is described with key word `conda` in each process in `main.nf`. It could be set in two ways:
 1. Using an existing conda environment. For example right now it set as:
