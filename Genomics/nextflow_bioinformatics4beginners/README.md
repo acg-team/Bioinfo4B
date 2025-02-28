@@ -74,13 +74,7 @@ This section provides instructions for running the pipeline on a local machine.
 
 #### **1. Download Source Code and Input Files**
 
-Clone the pipeline repository or download .zip file and navigate to the project directory. Download input fastq file and reference.
-
-```sh
-cp -r /cfs/earth/scratch/shared/bioinfo4beginners/Genomics/bio4beginners_nextflow/source .
-cd source
-mkdir results
-```
+Download .zip file from [google drive](https://drive.google.com/file/d/1A3vcVaQmviO27aJFSsh2r4mkBbFXPKTY/view?usp=sharing) and navigate to the project directory.
 
 #### **2. Create Conda Environment**
 
